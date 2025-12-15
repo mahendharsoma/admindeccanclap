@@ -123,3 +123,5 @@ define('USER_BANK_DETAILS_TABLE', 'user_bank_details');
 define('SERVICES_TABLE', 'services');
 define('PRODUCTS_TABLE', 'products');
 define('ITEMS_TABLE', 'items');
+////////////// cities /////////////
+define('CITIES_TABLE', 'cities');

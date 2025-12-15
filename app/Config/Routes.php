@@ -147,6 +147,12 @@ $routes->post('ajax_add_item', 'Items_Control::ajax_add_item', ['filter' => 'aut
 $routes->post('ajax_edit_item', 'Items_Control::ajax_edit_item', ['filter' => 'authGuard']);
 $routes->post('ajax_update_item', 'Items_Control::ajax_update_item', ['filter' => 'authGuard']);
 $routes->post('ajax_delete_item', 'Items_Control::ajax_delete_item', ['filter' => 'authGuard']);
+/////////////////// Cities /////////////////
+$routes->get('cities', 'Cities_Control::index', ['filter' => 'authGuard']);
+$routes->post('ajax_add_city', 'Cities_Control::ajax_add_city', ['filter' => 'authGuard']);
+$routes->post('ajax_edit_city', 'Cities_Control::ajax_edit_city', ['filter' => 'authGuard']);
+$routes->post('ajax_update_city', 'Cities_Control::ajax_update_city', ['filter' => 'authGuard']);
+$routes->post('ajax_delete_city', 'Cities_Control::ajax_delete_city', ['filter' => 'authGuard']);
 
 /* 
  * --------------------------------------------------------------------

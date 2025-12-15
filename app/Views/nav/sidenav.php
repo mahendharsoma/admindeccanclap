@@ -113,6 +113,22 @@
                         </li>
                     </ul>
                 </li>
+                <li>
+                    <h6 class="submenu-hdr">Cities</h6>
+                    <ul>
+                        <li class="submenu">
+                            <a href="#">
+                                <i class="fa-solid fa-users-between-lines"></i>
+                                <span>Cities Management</span>
+                                <span class="menu-arrow"></span>
+                            </a>
+                            <ul>
+                                <li><a href="<?= base_url('cities'); ?>" >Cities</a></li>
+                               
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
 
                 <!-- <li>
                     <h6 class="submenu-hdr">Vendors Management</h6>
