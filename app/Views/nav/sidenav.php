@@ -107,8 +107,8 @@
                                 <span class="menu-arrow"></span>
                             </a>
                             <ul>
-                                <li><a href="<?= base_url('services'); ?>" class="<?php if(isset($nav) & $nav == "services") { echo 'active' ; } ?>">All Services</a></li>
-                                <li><a href="<?= base_url('products'); ?>" class="<?php if(isset($nav) & $nav == "products") { echo 'active' ; } ?>">Products</a></li>
+                                <li><a href="<?= base_url('services'); ?>" >All Services</a></li>
+                                <li><a href="<?= base_url('products'); ?>" >Products</a></li>
                             </ul>
                         </li>
                     </ul>
