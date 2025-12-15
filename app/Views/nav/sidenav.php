@@ -107,8 +107,9 @@
                                 <span class="menu-arrow"></span>
                             </a>
                             <ul>
-                                <li><a href="<?= base_url('services'); ?>" >All Services</a></li>
+                               <li><a href="<?= base_url('services'); ?>" >Services</a></li>
                                 <li><a href="<?= base_url('products'); ?>" >Products</a></li>
+                                <li><a href="<?= base_url('items'); ?>" >Items</a></li>
                             </ul>
                         </li>
                     </ul>

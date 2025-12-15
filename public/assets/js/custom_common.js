@@ -501,6 +501,29 @@ function category_redirect(category) {
         window.location.href = base_url + "/" + selected_value;
     }
 }
+function product_redirect(selectObj) {
+    const product = selectObj.value;
+    if (!product) return;
+
+    const segments = window.location.pathname.split('/').filter(Boolean);
+    // ["items"] OR ["items","service"] OR ["items","service","product"]
+
+    // Service MUST exist
+    if (segments.length < 2) {
+        console.warn('Service not selected yet');
+        return;
+    }
+
+    const service = segments[1];
+
+    const newUrl = window.location.origin + '/items/' + service + '/' + product;
+
+    // Prevent infinite reload
+    if (window.location.href !== newUrl) {
+        window.location.href = newUrl;
+    }
+}
+
 
 function route_value_two_redirect(route_value_two) {
     const selected_value = route_value_two.value;
@@ -515,3 +538,4 @@ function route_value_two_redirect(route_value_two) {
         window.location.href = base_url + "/" + selected_value;
     }
 }
+

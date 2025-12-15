@@ -143,6 +143,7 @@ $routes->post('ajax_delete_product', 'Products_Control::ajax_delete_product', ['
 /////////////////// Items /////////////////
 $routes->get('items', 'Items_Control::index', ['filter' => 'authGuard']);
 $routes->get('items/(:any)', 'Items_Control::index/$1', ['filter' => 'authGuard']);
+$routes->get('items/(:any)/(:any)', 'Items_Control::index/$1/$2', ['filter' => 'authGuard']);
 $routes->post('ajax_add_item', 'Items_Control::ajax_add_item', ['filter' => 'authGuard']);
 $routes->post('ajax_edit_item', 'Items_Control::ajax_edit_item', ['filter' => 'authGuard']);
 $routes->post('ajax_update_item', 'Items_Control::ajax_update_item', ['filter' => 'authGuard']);

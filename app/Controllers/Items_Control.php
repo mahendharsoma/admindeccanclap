@@ -1,5 +1,6 @@
 <?php namespace App\Controllers;
 use App\Libraries\Items_Library;
+use App\Libraries\Services_Library;
 use App\Libraries\Products_Library;
 class Items_Control extends Default_Controller
 {
@@ -7,15 +8,37 @@ class Items_Control extends Default_Controller
     {
         parent:: __construct();
         $this->items_library = new Items_Library();
+        $this->services_library = new Services_Library();
         $this->products_library = new Products_Library();
        $this->db = db_connect();
-    } 
-    public function index($seg1 = false)
+    }
+    public function index($seg1 = false,$seg2 = false)
     {
     $data['nav'] = 'items';
+    $services = $this->services_library->get_data();
+    if ($services === false) 
+    {
+        $this->set_flash_error('Unable to get Services list, please try later');
+        return redirect()->to('home');
+    }
+    $data['services'] = $services;
+    $service_id = get_decoded_value($seg1);
+    if(!empty($service_id))
+    {
+    $data['selected_service_id'] = $service_id;
+    $products = $this->products_library->get_data_by_service($service_id);
+    if ($products === false) 
+    {
+    log_message('error', __METHOD__.' error while getting Products');
+    $this->set_flash_error('Unable to get products, please try later');
+    return redirect()->to(base_url('home'));
+    }
+    $data['products'] = $products;
+    $product_id = get_decoded_value($seg2);
     
-    $product_id = get_decoded_value($seg1);
-   
+    if(!empty($product_id))
+    {
+    
     $data['selected_product_id'] = $product_id;    
     $items = $this->items_library->get_data_by_product($product_id);
     if ($items === false) 
@@ -25,9 +48,12 @@ class Items_Control extends Default_Controller
     return redirect()->to(base_url('home'));
     }
     $data['items'] = $items;
-    
-    return $this->generateView('content_panel/Services/items_view',$data);
     }
+    }
+    
+    return $this->generateView('content_panel/Services/product_items_view',$data);
+    }
+    
   
     public function ajax_add_item()
     {
